@@ -33,7 +33,7 @@ exit
 
 pgupdate_start () {
 rm -rf /pg/tmp/install/update
-git clone -b v1 --single-branch https://github.com/johnkennyuk/install-1.git /pg/tmp/install/update
+git clone -b jk_v1 --single-branch https://github.com/johnkennyuk/install-1.git /pg/tmp/install/update
 
 cp -f /pg/tmp/install/update/pgupdate /bin/
 chmod 0755 /bin/pgupdate
@@ -95,7 +95,7 @@ case $typed in
 esac
 
 if [[ "$install_version" == "alpha" ]]; then
-sudo wget -nc https://raw.githubusercontent.com/johnkennyuk/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
+sudo wget -nc https://raw.githubusercontent.com/johnkennyuk/PlexGuide.com/jk_alpha/mods/install/main.sh -O- | sudo bash && exit
 fi
 
 catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version\>")
