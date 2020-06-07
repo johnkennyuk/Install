@@ -33,7 +33,7 @@ exit
 
 pgupdate_start () {
 rm -rf /pg/tmp/install/update
-git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install/update
+git clone -b v1 --single-branch https://github.com/johnkennyuk/install-1.git /pg/tmp/install/update
 
 cp -f /pg/tmp/install/update/pgupdate /bin/
 chmod 0755 /bin/pgupdate
