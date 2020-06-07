@@ -95,14 +95,14 @@ case $typed in
 esac
 
 if [[ "$install_version" == "alpha" ]]; then
-sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
+sudo wget -nc https://raw.githubusercontent.com/johnkennyuk/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
 fi
 
 catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version\>")
 
 if [[ "$catch_num" == "1" ]]; then
 rm -rf /tmp/PlexGuide*
-sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}" -P /tmp
+sudo wget "https://github.com/johnkennyuk/PlexGuide.com/archive/${install_version}" -P /tmp
 if [[ ! -e "/usr/bin/unzip" ]]; then apt-get install unzip -y; fi 
 unzip "/tmp/${install_version}.zip" -d /tmp
 bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
