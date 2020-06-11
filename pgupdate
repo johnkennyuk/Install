@@ -33,7 +33,7 @@ exit
 
 pgupdate_start () {
 rm -rf /pg/tmp/install/update
-git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install/update
+git clone -b jk_v1 --single-branch https://github.com/johnkennyuk/install-1.git /pg/tmp/install/update
 
 cp -f /pg/tmp/install/update/pgupdate /bin/
 chmod 0755 /bin/pgupdate
@@ -144,7 +144,7 @@ esac
 
 if [[ "$install_version" == "alpha" ]]; then
 common_fcreate_silent /pg/var/version && echo "Alpha" > /pg/var/version/pg.build
-sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
+sudo wget -nc https://raw.githubusercontent.com/johnkennyuk/PlexGuide.com/jk_alpha/mods/install/main.sh -O- | sudo bash && exit
 fi
 
 catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version\>")
@@ -152,7 +152,7 @@ catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version
 if [[ "$catch_num" == "1" ]]; then
 rm -rf /tmp/PlexGuide*
 
-sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}.zip" -P /tmp
+sudo wget "https://github.com/johnkennyuk/PlexGuide.com/archive/${install_version}.zip" -P /tmp
 if [[ ! -e "/usr/bin/unzip" ]]; then apt-get install unzip -y; fi
 unzip "/tmp/${install_version}.zip" -d /tmp
 common_fcreate_silent /pg/var/version && echo "${install_version}" > /pg/var/version/pg.build
